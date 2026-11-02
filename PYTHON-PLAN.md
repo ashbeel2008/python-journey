@@ -4,12 +4,17 @@
 **$300–800/month**. Use that to buy better hardware — then restart the video editing plan with a
 machine that can actually run it.
 
-**Positioning:** **Python automation + Discord bots** for gaming communities and small businesses.
+**Positioning:** **Python automation + a portfolio of small, real applications** — for creators,
+gaming communities, and small businesses.
+
+Two tracks, both required:
+- **Portfolio** — software people can open and try. Proof you can build.
+- **Service** — small paid work that the portfolio makes easier to sell.
 
 Why this lane:
-- It fits the world you already understand (Minecraft, Discord, servers).
 - It runs perfectly on 6 GB RAM — unlike Premiere.
-- Real buyers exist: server owners, Discord communities, small businesses drowning in manual work.
+- A working app is proof *and* a sales demo. Most beginners have neither.
+- Small automation work is what beginners actually get paid for first.
 - Projects are small enough to finish in a week.
 
 **Time:** 1 hour a day. **20 minutes learning, 40 minutes building.**
@@ -33,7 +38,7 @@ earn your first money.
 ## Phase 0 — Week 1: Setup + fundamentals
 
 **Setup**
-- Install **Git** (not installed yet)
+- Install **Git**
 - Create a GitHub account
 - Use **VS Code** (already installed)
 - Learn `venv` and how to run a file
@@ -41,9 +46,10 @@ earn your first money.
 **Learn**
 variables · types · f-strings · if/else · loops · functions · lists · dicts · files · errors
 
-**Project:** a CLI **"Clip Idea Tracker"** — add, list, delete ideas; save them to JSON.
+**Project:** `portfolio-app` **stage 1** — a JSON-driven terminal portfolio: intro, links, skills,
+projects, achievements. The code exists; your job is to make the content real.
 
-**Done when:** 1 repo on GitHub, 10+ commits, working script.
+**Done when:** 1 repo on GitHub, 10+ commits, `python main.py` prints your actual portfolio.
 
 ---
 
@@ -62,17 +68,19 @@ modules · `pip` · `pathlib` · `json` · `csv` · `requests` · APIs · `Beaut
 
 ---
 
-## Phase 2 — Weeks 5–8: Discord bots + databases
+## Phase 2 — Weeks 5–8: Portfolio app, GUI → web
 
 **Learn**
-`async` basics · `discord.py` · slash commands · cogs · SQLite · environment variables · deployment
+Tkinter · widgets and layout · event handlers · SQLite · Flask · HTML/CSS · deployment · environment
+variables
 
-**Build three bots (pick two to finish)**
-1. **Moderation bot** — warn/kick, log actions to a channel
-2. **Economy bot** — points stored in SQLite, daily rewards, leaderboard
-3. **Server-status bot** — pulls Minecraft server info from an API and posts it
+**Build**
+1. **Stage 2 — Tkinter desktop app** — sidebar of sections, scrollable content, reads the same JSON
+2. **Stage 3 — Flask web version** — same data, real URLs, deployed on a free host
+3. **One small paid tool** — built from the Phase 1 skills, sold or given as a free sample
 
-**Done when:** one bot runs 24/7 on a free host, with a demo GIF and README.
+**Done when:** a public link to the web portfolio, a working desktop app, and a screenshot or GIF in
+the README.
 
 ---
 
@@ -82,14 +90,17 @@ modules · `pip` · `pathlib` · `json` · `csv` · `requests` · APIs · `Beaut
 
 | Service | Price |
 |---------|-------|
-| Custom Discord bot (small) | $50–200 |
+| Small portfolio / landing site | $50–200 |
+| Custom small Python tool (desktop or web) | $50–200 |
 | Automation script | $30–150 |
 | Scraper / data export | $30–100 |
-| Minecraft server tool or bot | $50–200 |
+| Spreadsheet cleanup or report | $30–120 |
 
 **Where**
-Discord communities · r/forhire · Upwork · Fiverr · Minecraft server owners · local businesses
-· people complaining about manual work in forums
+r/forhire · Upwork · Fiverr · local businesses · creator and gaming communities · people
+complaining about repetitive manual work in forums and Discord servers
+
+> Discord is a **place to meet buyers**, not the product. Build whatever the buyer actually needs.
 
 **How**
 - 10 outreach messages a day (same discipline as the video plan)
@@ -173,7 +184,8 @@ If **Days coded = 0**, nothing else matters.
 
 - **Automate the Boring Stuff with Python** — free online, perfect for Phase 1
 - **Official Python tutorial** — docs.python.org, for reference
-- **discord.py docs** — for Phase 2
+- **Tkinter docs** — docs.python.org/3/library/tkinter.html, for Phase 2
+- **Flask docs** — flask.palletsprojects.com, for Phase 2
 - **CS50P (Harvard, free)** — if you want structure and rigor
 - **Do not buy** bootcamps, "AI Python" bundles, or certificate courses before your first client
 
@@ -181,9 +193,11 @@ If **Days coded = 0**, nothing else matters.
 
 ## Start now
 
-1. Install Git.
-2. Open `python/week-01/README.md`.
-3. Run the tests: `python python/week-01/test_exercises.py`
-4. Do Exercise 1. Then 2. Then stop for today.
+1. Open `portfolio-app/data/portfolio.json` and replace the sample text with your real details.
+2. Run `python main.py` from `portfolio-app/` and check it reads well.
+3. Run `python test_portfolio.py` — 10/10 should still pass.
+4. Commit and push.
+
+Then finish Week 1 (`python/week-01/`): 2/10 done, 8 to go.
 
 That's the plan.
