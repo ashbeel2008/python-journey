@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invoice</title>
+<style>
+  :root { --ink: #14161a; --muted: #6b7280; --line: #e5e7eb; --accent: #111827; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 40px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--ink); background: #f3f4f6; line-height: 1.5;
+  }
+  .sheet {
+    max-width: 820px; margin: 0 auto; background: #fff;
+    padding: 48px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  }
+  header { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; }
+  h1 { margin: 0 0 4px; font-size: 30px; letter-spacing: -.5px; }
+  .muted { color: var(--muted); font-size: 13px; }
+  .right { text-align: right; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin: 36px 0; }
+  .label { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 6px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  th, td { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--line); font-size: 14px; }
+  th { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); border-bottom: 2px solid var(--ink); }
+  td.num, th.num { text-align: right; white-space: nowrap; }
+  .totals { margin-left: auto; width: 320px; margin-top: 16px; }
+  .totals div { display: flex; justify-content: space-between; padding: 8px 0; font-size: 14px; }
+  .totals .grand { border-top: 2px solid var(--ink); margin-top: 6px; padding-top: 12px; font-size: 18px; font-weight: 700; }
+  .note { margin-top: 36px; padding: 16px 18px; background: #f9fafb; border-left: 3px solid var(--accent); font-size: 13px; }
+  [contenteditable]:focus { outline: 2px dashed #93c5fd; outline-offset: 3px; border-radius: 3px; }
+  .toolbar { max-width: 820px; margin: 0 auto 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  button {
+    font: inherit; font-size: 14px; padding: 10px 18px; cursor: pointer;
+    background: var(--accent); color: #fff; border: 0; border-radius: 8px;
+  }
+  button.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .toolbar, .hint { display: none !important; }
+    .sheet { box-shadow: none; border-radius: 0; padding: 24px; max-width: none; }
+  }
+  @media (max-width: 640px) {
+    .sheet { padding: 24px; }
+    .grid { grid-template-columns: 1fr; }
+    header { flex-direction: column; }
+    .right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="muted hint">Click any text to edit, then print or save as PDF.</span>
+  <span>
+    <button class="ghost" onclick="addRow()">+ Add line</button>
+    <button onclick="window.print()">Print / Save PDF</button>
+  </span>
+</div>
+
+<div class="sheet">
+  <header>
+    <div>
+      <h1 contenteditable="true">INVOICE</h1>
+      <div class="muted" contenteditable="true">Your Name / Studio</div>
+      <div class="muted" contenteditable="true">your@email.com · +00 00000 00000</div>
+      <div class="muted" contenteditable="true">City, Country</div>
+    </div>
+    <div class="right">
+      <div class="label">Invoice #</div>
+      <div contenteditable="true"><strong>0001</strong></div>
+      <div class="label" style="margin-top:12px">Date</div>
+      <div contenteditable="true">2026-11-02</div>
+      <div class="label" style="margin-top:12px">Due</div>
+      <div contenteditable="true">2026-11-09</div>
+    </div>
+  </header>
+
+  <div class="grid">
+    <div>
+      <div class="label">Bill to</div>
+      <div contenteditable="true"><strong>Client / Business Name</strong></div>
+      <div class="muted" contenteditable="true">Client contact name</div>
+      <div class="muted" contenteditable="true">client@email.com</div>
+      <div class="muted" contenteditable="true">Client address</div>
+    </div>
+    <div>
+      <div class="label">Project</div>
+      <div contenteditable="true"><strong>Video editing — November</strong></div>
+      <div class="muted" contenteditable="true">4 short-form videos, captions, 2 revision rounds</div>
+      <div class="label" style="margin-top:12px">Payment</div>
+      <div class="muted" contenteditable="true">Bank transfer / UPI / Wise — details on request</div>
+    </div>
+  </div>
+
+  <table id="items">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th class="num">Qty</th>
+        <th class="num">Rate</th>
+        <th class="num">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td contenteditable="true">Short-form video editing (30–60s, captions included)</td>
+        <td class="num" contenteditable="true">4</td>
+        <td class="num" contenteditable="true">$45.00</td>
+        <td class="num" contenteditable="true">$180.00</td>
+      </tr>
+      <tr>
+        <td contenteditable="true">Thumbnail / cover frame</td>
+        <td class="num" contenteditable="true">1</td>
+        <td class="num" contenteditable="true">$20.00</td>
+        <td class="num" contenteditable="true">$20.00</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="totals">
+    <div><span class="muted">Subtotal</span><span contenteditable="true">$200.00</span></div>
+    <div><span class="muted">Deposit paid (50%)</span><span contenteditable="true">−$100.00</span></div>
+    <div class="grand"><span>Balance due</span><span contenteditable="true">$100.00</span></div>
+  </div>
+
+  <div class="note" contenteditable="true">
+    <strong>Thank you.</strong> Payment is due within 7 days. Final unwatermarked files are released
+    once the balance clears.
+  </div>
+</div>
+
+<script>
+  function addRow() {
+    const tbody = document.querySelector('#items tbody');
+    const row = document.createElement('tr');
+    row.innerHTML =
+      '<td contenteditable="true">New item</td>' +
+      '<td class="num" contenteditable="true">1</td>' +
+      '<td class="num" contenteditable="true">$0.00</td>' +
+      '<td class="num" contenteditable="true">$0.00</td>';
+    tbody.appendChild(row);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Secrets
+.env
+*.key
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+
+# Large media (never commit these)
+*.mp4
+*.mov
+*.mkv
+*.mp3
+*.wav
+*.psd
+*.prproj
+*.pcpro
+
+# Logs / temp
+*.log
+*.tmp
+.DS_Store
