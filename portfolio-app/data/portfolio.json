@@ -1,0 +1,75 @@
+{
+  "name": "Miraal Fatima",
+  "headline": "Python developer in training",
+  "about": "I am learning Python and software development one hour a day. I build small, real tools and document the process in public. My next goal is my first paid client.",
+  "location": "",
+  "email": "",
+  "links": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/ashbeel2008"
+    },
+    {
+      "label": "LinkedIn",
+      "url": ""
+    },
+    {
+      "label": "YouTube",
+      "url": ""
+    }
+  ],
+  "skills": [
+    {
+      "name": "Python",
+      "level": "learning"
+    },
+    {
+      "name": "Git & GitHub",
+      "level": "learning"
+    },
+    {
+      "name": "Video editing",
+      "level": "intermediate"
+    },
+    {
+      "name": "Problem solving",
+      "level": "improving"
+    }
+  ],
+  "projects": [
+    {
+      "title": "python-journey",
+      "description": "My daily Python practice: fundamentals exercises with tests, committed every day.",
+      "url": "https://github.com/ashbeel2008/python-journey",
+      "status": "in progress",
+      "tags": [
+        "python",
+        "learning",
+        "git"
+      ]
+    },
+    {
+      "title": "Portfolio app",
+      "description": "A desktop and web portfolio built from scratch in Python. This app.",
+      "url": "",
+      "status": "building",
+      "tags": [
+        "python",
+        "tkinter",
+        "json"
+      ]
+    }
+  ],
+  "achievements": [
+    {
+      "title": "Set up a full dev environment",
+      "date": "2026-11",
+      "note": "Python, VS Code, Git, GitHub, and a daily commit habit."
+    },
+    {
+      "title": "First repository pushed",
+      "date": "2026-11",
+      "note": "python-journey is public on GitHub."
+    }
+  ]
+}
