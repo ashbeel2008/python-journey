@@ -15,7 +15,7 @@ Rules:
 def welcome(name):
     """Return 'Welcome, <name>!'"""
     # Hint: f"Welcome, {name}!"
-    pass
+    return f'Welcome, {name}!'
 
 
 def player_status(name, health):
